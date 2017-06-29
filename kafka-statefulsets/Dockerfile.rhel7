@@ -1,6 +1,7 @@
-FROM fedora:25
+FROM registry.access.redhat.com/rhel7-atomic
 
-RUN dnf -y install which java-1.8.0-openjdk libaio python gettext hostname iputils wget && dnf clean all -y
+RUN microdnf -y install which java-1.8.0-openjdk libaio python gettext hostname iputils wget && \
+    microdnf clean all -y
 
 # set Scala and Kafka version
 ENV SCALA_VERSION=2.11
